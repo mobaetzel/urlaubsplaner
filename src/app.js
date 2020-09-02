@@ -9,11 +9,16 @@ class App extends React.Component {
     this.state = {
       year: now.getFullYear(),
       vacation: 30,
+      days: [],
     };
 
     this.onYearChange = this.onYearChange.bind(this);
     this.onVacationChange = this.onVacationChange.bind(this);
     this.updateCalendar = this.updateCalendar.bind(this);
+  }
+
+  componentDidMount() {
+    this.updateCalendar();
   }
 
   render() {
@@ -57,9 +62,11 @@ class App extends React.Component {
         </div>
 
         <div className={'row'}>
+          <ul>
           {
-
+            this.state.days.map((d, index) => <li key={index}>{d}</li>)
           }
+          </ul>
         </div>
       </div>
     );
@@ -78,7 +85,15 @@ class App extends React.Component {
   }
 
   updateCalendar() {
-    alert('update');
+    const days = Array(this.isLeapYear(this.state.year) ? 366 : 365).fill(0);
+    console.log(days);
+    this.setState({
+      days: days,
+    });
+  }
+
+  isLeapYear(year) {
+    return (year & 3) == 0 && ((year % 25) != 0 || (year & 15) == 0);
   }
 }
 
