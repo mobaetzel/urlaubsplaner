@@ -8,8 +8,8 @@
 }
 
 .monthTable td:hover {
-    background-color: #E1E1E1;
-    transition: background-color 100ms ease-in-out;
+    opacity: 0.75;
+    transition: opacity 100ms ease-in-out;
 }
 
 
@@ -32,11 +32,12 @@
 }
 
 .defaultHoliday {
-    background-color: lightgreen;
+    background-color: #ab47bc;
 }
 
 .stateHoliday {
-    background-color: green;
+    color: white;
+    background-color: #790e8b;
 }
 
 .takeVacation {

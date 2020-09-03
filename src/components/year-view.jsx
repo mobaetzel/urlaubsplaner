@@ -23,7 +23,8 @@ export default function YearView(props) {
                 <MonthCell key={i.toString() + j.toString()}
                            columns={columns}
                            now={moment({year: props.year, month: counter})}
-                           days={props.days}/>
+                           days={props.days}
+                           onDateClick={props.onDateClick}/>
             );
             counter++;
         }

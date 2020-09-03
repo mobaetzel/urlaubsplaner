@@ -32,8 +32,7 @@ class App extends React.Component {
     render() {
         return (
             <div className={'container'}>
-                <h1>Urlaubsmeister</h1>
-
+                <h1 style={{textAlign: 'center'}}>Urlaubsmeister</h1>
                 <div className={'row'}>
                     <div className={'four columns'}>
                         <label htmlFor={'year-input'}>Jahr</label>
@@ -71,9 +70,11 @@ class App extends React.Component {
 
                 <hr/>
 
-                <div>
-                    <YearView year={this.state.year} days={this.state.days} columns={2}/>
+                <div className={'row'}>
+                    1x Klicken = Urlaub, 2x Klicke = Hier kein Urlaub möglich
                 </div>
+
+                <YearView year={this.state.year} days={this.state.days} columns={2} onDateClick={(date) => console.log(date)}/>
             </div>
         );
     }
@@ -125,6 +126,10 @@ class App extends React.Component {
         this.setState({
             days: days,
         });
+    }
+
+    onDateClick(date) {
+
     }
 }
 

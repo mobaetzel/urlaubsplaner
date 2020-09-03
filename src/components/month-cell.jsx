@@ -24,14 +24,14 @@ export default function MonthCell(props) {
     }
 
     for (let day = 1; day <= days; day++) {
-        now.date(day);
-        const dayOfWeek = now.isoWeekday();
+        const _now = now.clone().date(day);
+        const dayOfWeek = _now.isoWeekday();
         if (dayOfWeek === 1) {
-            rows.push([<td key={`kw-${day}-${props.year}`} className={styles.kwCell}>{now.isoWeek()}</td>]);
+            rows.push([<td key={`kw-${day}-${props.year}`} className={styles.kwCell}>{_now.isoWeek()}</td>]);
         }
         const row = rows[rows.length - 1];
 
-        const dayInfo = props.days[now.dayOfYear() - 1];
+        const dayInfo = props.days[_now.dayOfYear() - 1];
 
         let cls = styles.noInformation;
         if (dayInfo != null) {
@@ -43,15 +43,18 @@ export default function MonthCell(props) {
             }
         }
 
+        const onClick = () => {
+            props.onDateClick(_now);
+        };
         if (dayInfo && dayInfo.holiday) {
             row.push(
-                <Tippy content={dayInfo.holiday}>
-                    <td key={`day-${day}-${props.year}`} className={cls}>{day}</td>
+                <Tippy key={`day-${day}-${props.year}`} content={dayInfo.holiday}>
+                    <td className={cls} onClick={onClick}>{day}</td>
                 </Tippy>
             );
         } else {
             row.push(
-                <td key={`day-${day}-${props.year}`} className={cls}>{day}</td>
+                <td key={`day-${day}-${props.year}`} className={cls} onClick={onClick}>{day}</td>
             );
         }
     }
