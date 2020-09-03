@@ -1,0 +1,48 @@
+.monthTable th,
+.monthTable td {
+    text-align: center;
+}
+
+.monthTable td {
+    cursor: pointer;
+}
+
+.monthTable td:hover {
+    background-color: #E1E1E1;
+    transition: background-color 100ms ease-in-out;
+}
+
+
+.monthTable th:first-child,
+.monthTable td:first-child {
+    padding-left: 15px;
+}
+
+.monthTable th:last-child,
+.monthTable td:last-child {
+    padding-right: 15px;
+}
+
+.kwCell {
+    color: #aaa;
+}
+
+.forbidden {
+    background-color: red;
+}
+
+.defaultHoliday {
+    background-color: lightgreen;
+}
+
+.stateHoliday {
+    background-color: green;
+}
+
+.takeVacation {
+    background-color: blue;
+}
+
+.noInformation {
+    background-color: white;
+}

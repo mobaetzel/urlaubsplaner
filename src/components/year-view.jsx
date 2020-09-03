@@ -33,7 +33,6 @@ export default function YearView(props) {
             </div>
         );
     }
-    console.log(rows);
     return (
         <>
             {rows}

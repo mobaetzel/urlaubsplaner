@@ -1,4 +1,18 @@
-export default [
-    'Hessen',
-    'Bayern',
-];
+export default {
+    BadenWuerttemberg: 'Baden-Württemberg',
+    Bayern: 'Bayern',
+    Berlin: 'Berlin',
+    Brandenburg: 'Brandenburg',
+    Bremen: 'Bremen',
+    Hamburg: 'Hamburg',
+    Hessen: 'Hessen',
+    MecklenburgVorpommern: 'Mecklenburg-Vorpommern',
+    Niedersachsen: 'Niedersachsen',
+    NordrheinWestfalen: 'Nordrhein-Westfalen',
+    RheinlandPfalz: 'Rheinland-Pfalz',
+    Saarland: 'Saarland',
+    Sachsen: 'Sachsen',
+    SachsenAnhalt: 'Sachsen-Anhalt',
+    SchleswigHolstein: 'Schleswig-Holstein',
+    Thueringen: 'Thüringen',
+};

@@ -2,6 +2,7 @@ import React from 'react';
 import states from './data/states';
 import moment from 'moment';
 import YearView from "./components/year-view";
+import holidays from "./data/holidays";
 
 class App extends React.Component {
     constructor(props) {
@@ -15,7 +16,7 @@ class App extends React.Component {
             vacation: 30,
             daysInYear: now.isLeapYear() ? 366 : 365,
             days: [],
-            state: states[0],
+            state: states.Hessen,
         };
 
         this.onYearChange = this.onYearChange.bind(this);
@@ -60,7 +61,7 @@ class App extends React.Component {
                                 onChange={this.onStateChange}
                                 onBlur={this.updateCalendar}>
                             {
-                                states.map(state => (
+                                Object.values(states).map(state => (
                                     <option key={state} value={state}>{state}</option>
                                 ))
                             }
@@ -80,18 +81,24 @@ class App extends React.Component {
     onYearChange(event) {
         this.setState({
             year: event.target.value,
+        }, () => {
+            this.updateCalendar();
         });
     }
 
     onVacationChange(event) {
         this.setState({
             vacation: event.target.value,
+        }, () => {
+            this.updateCalendar();
         });
     }
 
     onStateChange(event) {
         this.setState({
             state: event.target.value,
+        }, () => {
+            this.updateCalendar();
         });
     }
 
@@ -99,10 +106,21 @@ class App extends React.Component {
         const now = moment({year: this.state.year});
         const days = Array(this.state.daysInYear).fill(0).map((_, index) => {
             now.dayOfYear(index + 1);
-            if (now.weekday() === 5 || now.weekday() === 6) {
-                return 1;
+
+            const holiday = holidays(now, this.state.state);
+            if (holiday != null) {
+                return {
+                    isHoliday: true,
+                    holiday: holiday,
+                }
             }
-            return 0;
+
+            if (now.isoWeekday() === 6 || now.isoWeekday() === 7) {
+                return {
+                    isWeekend: true,
+                };
+            }
+            return {};
         });
         this.setState({
             days: days,
