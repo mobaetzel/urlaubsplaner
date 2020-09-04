@@ -1,6 +1,8 @@
 .monthTable th,
 .monthTable td {
     text-align: center;
+    font-size: 12px;
+    padding: 8px 9px;
 }
 
 .monthTable td {
@@ -28,22 +30,62 @@
 }
 
 .forbidden {
-    background-color: red;
+    color: white;
+    background-color: #ff4b5c;
 }
 
 .defaultHoliday {
-    background-color: #ab47bc;
+    background-color: #66bfbf;
 }
 
 .stateHoliday {
     color: white;
-    background-color: #790e8b;
+    background-color: #056674;
 }
 
 .takeVacation {
-    background-color: blue;
+    color: white;
+    background-color: #667cbf;
 }
 
 .noInformation {
     background-color: white;
+}
+
+.monthLong {
+    display: none;
+}
+
+@media screen and (max-width: 550px) {
+    .monthTable {
+        font-size: 70%;
+    }
+
+    .monthTable th,
+    .monthTable td {
+        padding: 2.5% 4px;
+    }
+
+    .monthTable th:first-child,
+    .monthTable td:first-child {
+        padding-left: 4px;
+    }
+
+    .monthTable th:last-child,
+    .monthTable td:last-child {
+        padding-right: 4px;
+    }
+}
+
+@media print {
+    .monthShort {
+        display: none;
+    }
+    .monthLong {
+        display: inherit;
+    }
+
+    .monthTable th {
+        color: #aaa;
+    }
 }

@@ -1,0 +1,6 @@
+@media print {
+    #saveControls,
+    #header {
+        display: none;
+    }
+}

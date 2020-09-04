@@ -34,9 +34,5 @@ export default function YearView(props) {
             </div>
         );
     }
-    return (
-        <>
-            {rows}
-        </>
-    );
+    return rows;
 }

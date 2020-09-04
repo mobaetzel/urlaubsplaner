@@ -1,0 +1,28 @@
+.infoBar {
+    margin: 2em 0;
+}
+
+.fixedInfoBar {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    z-index: 999;
+    box-shadow: 0 0 4px gray;
+}
+
+@media screen and (max-width: 550px) {
+    .infoBar,
+    .fixedInfoBar {
+        font-size: 80%;
+    }
+}
+
+@media print {
+    .infoBar,
+    .fixedInfoBar {
+        display: none;
+    }
+}

@@ -1,0 +1,20 @@
+body {
+    background-color: #fcfffc;
+    -webkit-print-color-adjust:exact;
+}
+
+@media print {
+    h2 {
+        font-size: 18px;
+    }
+
+    td, th {
+        font-size: 12px !important;
+        padding: 2px 3px !important;
+    }
+
+    .four.columns {
+        width: 33%;
+        padding-right: 8px;
+    }
+}

@@ -5,6 +5,7 @@ import * as serviceWorker from './serviceWorker';
 
 import './styles/normalize.css';
 import './styles/skeleton.css';
+import './styles/main.css';
 
 ReactDOM.render(
     <React.StrictMode>

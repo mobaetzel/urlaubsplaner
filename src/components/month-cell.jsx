@@ -41,6 +41,12 @@ export default function MonthCell(props) {
             if (dayInfo.isHoliday) {
                 cls = styles.stateHoliday;
             }
+            if (dayInfo.isVacation) {
+                cls = styles.takeVacation;
+            }
+            if (dayInfo.isBlocked) {
+                cls = styles.forbidden;
+            }
         }
 
         const onClick = () => {
@@ -61,7 +67,8 @@ export default function MonthCell(props) {
 
     return (
         <div className={props.columns + ' columns'}>
-            <h2>{props.now.format('MMM')}</h2>
+            <h2 className={styles.monthShort}>{props.now.format('MMM')}</h2>
+            <h2 className={styles.monthLong}>{props.now.format('MMMM')}</h2>
             <table className={styles.monthTable + ' u-full-width'}>
                 <thead>
                 <tr>
