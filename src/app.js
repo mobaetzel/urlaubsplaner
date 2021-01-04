@@ -48,9 +48,9 @@ class App extends React.Component {
         const extendedWeekends = 0;
 
         return (
-            <div ref={this.captureRef}>
+            <div id={styles.app} ref={this.captureRef}>
                 <div id={styles.header} className={'container'}>
-                    <h1 style={{textAlign: 'center'}}>Urlaubsmeister</h1>
+                    <h1 style={{textAlign: 'center'}}>Urlaubsplaner</h1>
                     <div className={'row'}>
                         <div className={'four columns'}>
                             <label htmlFor={'year-input'}>Jahr</label>
